@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-import readlineSync from 'readline-sync'; 
+import readlineSync from 'readline-sync';
 
 const greetUser = () => {
-	const userName = readlineSync.question('May i have your name?');
-	console.log(`Hello, ${userName}`);
-}; 
+  const userName = readlineSync.question('May i have your name?');
+  console.log(`Hello, ${userName}`);
+};
 
-export { greetUser };
+export default greetUser;
