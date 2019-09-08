@@ -1,6 +1,6 @@
 {
   "name": "hexletbackendproject1",
-  "version": "1.0.0",
+  "version": "1.1.6",
   "description": "",
   "main": "",
   "scripts": {
@@ -20,5 +20,8 @@
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0"
+  },
+  "dependencies": {
+    "readline-sync": "^1.4.10"
   }
 }
