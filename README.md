@@ -3,3 +3,4 @@
 <a href="https://travis-ci.org/AlexanderMalikh/backend-project-lvl1.svg?branch=master"><img src="https://travis-ci.org/AlexanderMalikh/backend-project-lvl1.svg?branch=master" /></a>
 <a href="https://asciinema.org/a/266678" target="_blank"><img src="https://asciinema.org/a/266678.svg" /></a>
 <a href="https://asciinema.org/a/lkGY5S3w5qUvCrYi5LESIZP8W" target="_blank"><img src="https://asciinema.org/a/lkGY5S3w5qUvCrYi5LESIZP8W.svg" /></a>
+<a href="https://asciinema.org/a/iwqIIa7otoc1NZmGGMoWgu2d1" target="_blank"><img src="https://asciinema.org/a/iwqIIa7otoc1NZmGGMoWgu2d1.svg" /></a>

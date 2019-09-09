@@ -56,6 +56,21 @@ export const getResultOfUsingRandomOperator = (pair, operator) => {
 
 export const createQApair = (q, a) => cons(q, a);
 
+export const findGcd = (pair) => {
+  const m = car(pair);
+  const n = cdr(pair);
+  if (m === 0) return n;
+  if (n === 0) return m;
+  if (m === n) return m;
+  if (m === 1) return 1;
+  if (n === 1) return 1;
+  if (m % 2 === 0 && n % 2 === 0) return 2 * findGcd(cons(m / 2, n / 2));
+  if (m % 2 === 0 && n % 2 !== 0) return findGcd(cons(m / 2, n));
+  if (m % 2 !== 0 && n % 2 === 0) return findGcd(cons(m, n / 2));
+  if (m % 2 !== 0 && n % 2 !== 0 && n > m) return findGcd(cons((n - m) / 2, m));
+  return findGcd(cons((m - n) / 2, n));
+};
+
 export const startGame = (arrayQA) => {
   let rightAnswerCounter = 0;
   for (let i = 0; i < arrayQA.length; i += 1) {
