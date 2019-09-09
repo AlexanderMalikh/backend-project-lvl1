@@ -5,13 +5,13 @@ import {
   startGame, createQApair,
 } from '..';
 
-const generateContent = () => {
+const generateGameData = () => {
   const arrayQA = [];
   for (let i = 0; i < 3; i += 1) {
-    const evenNumber = getRandomInteger();
-    const answer = evenNumber % 2 === 0 ? 'yes' : 'no';
-    const question = `${evenNumber}`;
-    arrayQA[i] = createQApair(question, answer);
+    const numberForCheck = getRandomInteger();
+    const rightAnswer = numberForCheck % 2 === 0 ? 'yes' : 'no';
+    const questionString = `${numberForCheck}`;
+    arrayQA[i] = createQApair(questionString, rightAnswer);
   }
   return arrayQA;
 };
@@ -24,5 +24,5 @@ const gameDescription = () => {
 export default () => {
   gameDescription();
   greetUser();
-  startGame(generateContent());
+  startGame(generateGameData());
 };

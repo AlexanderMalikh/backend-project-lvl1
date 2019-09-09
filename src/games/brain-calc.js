@@ -6,14 +6,14 @@ import {
   startGame, createQApair, car, cdr,
 } from '..';
 
-const generateContent = () => {
+const generateGameData = () => {
   const arrayQA = [];
   for (let i = 0; i < 3; i += 1) {
-    const pair = getRandomIntegerPair();
+    const randomPairOfNums = getRandomIntegerPair();
     const operator = getRandomOperator();
-    const answer = getResultOfUsingRandomOperator(pair, operator);
-    const question = `${car(pair)} ${operator} ${cdr(pair)}`;
-    arrayQA[i] = createQApair(question, String(answer));
+    const rightAnswer = getResultOfUsingRandomOperator(randomPairOfNums, operator);
+    const question = `${car(randomPairOfNums)} ${operator} ${cdr(randomPairOfNums)}`;
+    arrayQA[i] = createQApair(question, String(rightAnswer));
   }
   return arrayQA;
 };
@@ -25,5 +25,5 @@ const gameDescription = () => {
 export default () => {
   gameDescription();
   greetUser();
-  startGame(generateContent());
+  startGame(generateGameData());
 };

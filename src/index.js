@@ -35,17 +35,17 @@ export const getRandomOperator = () => {
   return operator;
 };
 
-export const getResultOfUsingRandomOperator = (pair, operator) => {
+export const getResultOfUsingRandomOperator = (pairOfNums, operator) => {
   let result = 0;
   switch (operator) {
     case '+':
-      result = car(pair) + cdr(pair);
+      result = car(pairOfNums) + cdr(pairOfNums);
       break;
     case '-':
-      result = car(pair) - cdr(pair);
+      result = car(pairOfNums) - cdr(pairOfNums);
       break;
     case '*':
-      result = car(pair) * cdr(pair);
+      result = car(pairOfNums) * cdr(pairOfNums);
       break;
     default:
       result = null;
@@ -54,11 +54,11 @@ export const getResultOfUsingRandomOperator = (pair, operator) => {
   return result;
 };
 
-export const createQApair = (q, a) => cons(q, a);
+export const createQApair = (question, answer) => cons(question, answer);
 
-export const findGcd = (pair) => {
-  const m = car(pair);
-  const n = cdr(pair);
+export const findGcd = (pairOfNums) => {
+  const m = car(pairOfNums);
+  const n = cdr(pairOfNums);
   if (m === 0) return n;
   if (n === 0) return m;
   if (m === n) return m;

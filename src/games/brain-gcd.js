@@ -5,13 +5,13 @@ import {
   startGame, createQApair, car, cdr,
 } from '..';
 
-const generateContent = () => {
+const generateGameData = () => {
   const arrayQA = [];
   for (let i = 0; i < 3; i += 1) {
-    const pair = getRandomIntegerPair();
-    const answer = findGcd(pair);
-    const question = `${car(pair)} ${cdr(pair)}`;
-    arrayQA[i] = createQApair(question, String(answer));
+    const randomPairOfNums = getRandomIntegerPair();
+    const rightAnswer = findGcd(randomPairOfNums);
+    const questionString = `${car(randomPairOfNums)} ${cdr(randomPairOfNums)}`;
+    arrayQA[i] = createQApair(questionString, String(rightAnswer));
   }
   return arrayQA;
 };
@@ -24,5 +24,5 @@ export const gameDescription = () => {
 export default () => {
   gameDescription();
   greetUser();
-  startGame(generateContent());
+  startGame(generateGameData());
 };
