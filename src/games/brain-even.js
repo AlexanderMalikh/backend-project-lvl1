@@ -5,9 +5,7 @@ import {
   startGame, createQApair,
 } from '..';
 
-const even = () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('Answer "yes" if the number is even, otherwise answer "no".\n');
+const generateContent = () => {
   const arrayQA = [];
   for (let i = 0; i < 3; i += 1) {
     const evenNumber = getRandomInteger();
@@ -15,8 +13,16 @@ const even = () => {
     const question = `${evenNumber}`;
     arrayQA[i] = createQApair(question, answer);
   }
-  greetUser();
-  startGame(arrayQA);
+  return arrayQA;
 };
 
-even();
+const gameDescription = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('Answer "yes" if the number is even, otherwise answer "no".\n');
+};
+
+export default () => {
+  gameDescription();
+  greetUser();
+  startGame(generateContent());
+};

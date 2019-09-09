@@ -6,9 +6,7 @@ import {
   startGame, createQApair, car, cdr,
 } from '..';
 
-const calc = () => {
-  console.log('Welcome to the Brain Games!');
-  console.log('What is the result of the expression?\n');
+const generateContent = () => {
   const arrayQA = [];
   for (let i = 0; i < 3; i += 1) {
     const pair = getRandomIntegerPair();
@@ -17,9 +15,15 @@ const calc = () => {
     const question = `${car(pair)} ${operator} ${cdr(pair)}`;
     arrayQA[i] = createQApair(question, String(answer));
   }
-  greetUser();
-  startGame(arrayQA);
+  return arrayQA;
+};
+const gameDescription = () => {
+  console.log('Welcome to the Brain Games!');
+  console.log('What is the result of the expression?\n');
 };
 
-
-calc();
+export default () => {
+  gameDescription();
+  greetUser();
+  startGame(generateContent());
+};

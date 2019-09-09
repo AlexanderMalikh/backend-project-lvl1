@@ -2,5 +2,11 @@
 
 import { greetUser } from '..';
 
-console.log('Welcome to the Brain Games!');
-greetUser();
+export const gameDescription = () => {
+  console.log('Welcome to the Brain Games!');
+};
+
+export default () => {
+  gameDescription();
+  greetUser();
+};
