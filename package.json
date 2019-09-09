@@ -1,15 +1,16 @@
 {
   "name": "hexletbackendproject1",
-  "version": "1.4.02",
-  "description": "",
+  "version": "1.6.0",
+  "description": "Let's play some games",
   "main": "",
   "scripts": {
     "build": "NODE_ENV=production babel src --out-dir dist --source-maps inline",
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js"
+    "brain-games": "dist/games/brain-games.js",
+    "brain-even": "dist/games/brain-even.js",
+    "brain-calc": "dist/games/brain-calc.js"
   },
   "files": [
     "dist"
@@ -23,6 +24,7 @@
     "@babel/preset-env": "^7.6.0"
   },
   "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
