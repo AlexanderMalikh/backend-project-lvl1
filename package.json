@@ -1,6 +1,6 @@
 {
   "name": "hexletbackendproject1",
-  "version": "1.9.3",
+  "version": "1.9.4",
   "description": "Let's play some games",
   "main": "",
   "scripts": {
@@ -8,12 +8,11 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "brain-games": "dist/bin/brain-games.js",
-    "brain-even": "dist/bin/brain-even.js",
-    "brain-calc": "dist/bin/brain-calc.js",
-    "brain-gcd": "dist/bin/brain-gcd.js",
-    "brain-progression": "dist/bin/brain-progression.js",
-    "brain-prime": "dist/bin/brain-prime.js"
+    "even": "dist/bin/even.js",
+    "calc": "dist/bin/calc.js",
+    "gcd": "dist/bin/gcd.js",
+    "progression": "dist/bin/progression.js",
+    "prime": "dist/bin/prime.js"
   },
   "files": [
     "dist"
@@ -29,18 +28,18 @@
   "author": "Alexander Malykh",
   "license": "ISC",
   "devDependencies": {
-    "@babel/cli": "^7.6.0",
-    "@babel/core": "^7.6.0",
-    "@babel/node": "^7.6.1",
-    "@babel/preset-env": "^7.6.0"
-  },
-  "dependencies": {
-    "@hexlet/pairs": "^1.0.10",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.18.2",
-    "readline-sync": "^1.4.10"
+    "eslint-plugin-import": "^2.18.2"
+  },
+  "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
+    "readline-sync": "^1.4.10",
+    "@babel/cli": "^7.6.0",
+    "@babel/core": "^7.6.0",
+    "@babel/node": "^7.6.1",
+    "@babel/preset-env": "^7.6.0"
   }
 }
