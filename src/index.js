@@ -57,18 +57,11 @@ export const createQuestionAndAnswerPair = (question, answer) => cons(question, 
 export const findGcd = (pairOfNums) => {
   const m = car(pairOfNums);
   const n = cdr(pairOfNums);
-  if (m === 0) return n;
-  if (n === 0) return m;
-  if (m === n) return m;
-  if (m === 1) return 1;
-  if (n === 1) return 1;
-  if (m % 2 === 0 && n % 2 === 0) return 2 * findGcd(cons(m / 2, n / 2));
-  if (m % 2 === 0 && n % 2 !== 0) return findGcd(cons(m / 2, n));
-  if (m % 2 !== 0 && n % 2 === 0) return findGcd(cons(m, n / 2));
-  if (m % 2 !== 0 && n % 2 !== 0 && n > m) return findGcd(cons((n - m) / 2, m));
-  return findGcd(cons((m - n) / 2, n));
+  if (n === 0) {
+    return m;
+  }
+  return findGcd(cons(n, m % n));
 };
-
 export const isPrime = (num) => {
   for (let i = 2; i < num; i += 1) {
     if (num % i === 0) return 'no';
