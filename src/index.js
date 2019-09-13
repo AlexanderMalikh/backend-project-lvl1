@@ -4,6 +4,11 @@ import {
 } from '@hexlet/pairs';
 
 let userName = '';
+const questionsAndAnswers = [];
+let question;
+let rightAnswer;
+let randomPairOfNums;
+let numberForCheck;
 
 export const greetUser = () => {
   userName = readlineSync.question('May i have your name? ');
@@ -52,7 +57,7 @@ export const getResultOfUsingRandomOperator = (pairOfNums, operator) => {
   return result;
 };
 
-export const createQuestionAndAnswerPair = (question, answer) => cons(question, answer);
+export const createQuestionAndAnswerPair = (questions, answers) => cons(questions, answers);
 
 export const findGcd = (pairOfNums) => {
   const m = car(pairOfNums);
@@ -89,58 +94,71 @@ export const gameDescription = (gameName) => {
   console.log(gameGreeting);
 };
 
+const generateDataForEven = () => {
+  for (let i = 0; i < 3; i += 1) {
+    numberForCheck = getRandomNumber();
+    rightAnswer = numberForCheck % 2 === 0 ? 'yes' : 'no';
+    question = `${numberForCheck}`;
+    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, rightAnswer);
+  }
+};
+
+const generateDataForCalc = () => {
+  for (let i = 0; i < 3; i += 1) {
+    randomPairOfNums = getRandomNumberPair();
+    const operator = getRandomOperator();
+    rightAnswer = getResultOfUsingRandomOperator(randomPairOfNums, operator);
+    question = `${car(randomPairOfNums)} ${operator} ${cdr(randomPairOfNums)}`;
+    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
+  }
+};
+
+const generateDataForGcd = () => {
+  for (let i = 0; i < 3; i += 1) {
+    randomPairOfNums = getRandomNumberPair();
+    rightAnswer = findGcd(randomPairOfNums);
+    question = `${car(randomPairOfNums)} ${cdr(randomPairOfNums)}`;
+    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
+  }
+};
+
+const generateDataForPrime = () => {
+  for (let i = 0; i < 3; i += 1) {
+    numberForCheck = getRandomNumber();
+    rightAnswer = isPrime(numberForCheck);
+    question = `${numberForCheck}`;
+    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, rightAnswer);
+  }
+};
+const generateDataForProgression = () => {
+  for (let i = 0; i < 3; i += 1) {
+    const firstNumberOfProgression = getRandomNumber();
+    const difference = getRandomNumber();
+    const missingIndex = Math.floor(Math.random() * 10 + 1);
+    rightAnswer = firstNumberOfProgression + difference * (missingIndex - 1);
+    for (let j = 1; j < 11; j += 1) {
+      if (j === missingIndex) question += '.. ';
+      else question += `${firstNumberOfProgression + difference * (j - 1)} `;
+    }
+    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
+  }
+};
 export const generateGameData = (gameName) => {
-  const questionsAndAnswers = [];
-  let question;
-  let rightAnswer;
-  let randomPairOfNums;
-  let numberForCheck;
   switch (gameName) {
     case ('even'):
-      for (let i = 0; i < 3; i += 1) {
-        numberForCheck = getRandomNumber();
-        rightAnswer = numberForCheck % 2 === 0 ? 'yes' : 'no';
-        question = `${numberForCheck}`;
-        questionsAndAnswers[i] = createQuestionAndAnswerPair(question, rightAnswer);
-      }
+      generateDataForEven();
       break;
     case ('calc'):
-      for (let i = 0; i < 3; i += 1) {
-        randomPairOfNums = getRandomNumberPair();
-        const operator = getRandomOperator();
-        rightAnswer = getResultOfUsingRandomOperator(randomPairOfNums, operator);
-        question = `${car(randomPairOfNums)} ${operator} ${cdr(randomPairOfNums)}`;
-        questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
-      }
+      generateDataForCalc();
       break;
     case ('gcd'):
-      for (let i = 0; i < 3; i += 1) {
-        randomPairOfNums = getRandomNumberPair();
-        rightAnswer = findGcd(randomPairOfNums);
-        question = `${car(randomPairOfNums)} ${cdr(randomPairOfNums)}`;
-        questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
-      }
+      generateDataForGcd();
       break;
     case ('prime'):
-      for (let i = 0; i < 3; i += 1) {
-        numberForCheck = getRandomNumber();
-        rightAnswer = isPrime(numberForCheck);
-        question = `${numberForCheck}`;
-        questionsAndAnswers[i] = createQuestionAndAnswerPair(question, rightAnswer);
-      }
+      generateDataForPrime();
       break;
     case ('progression'):
-      for (let i = 0; i < 3; i += 1) {
-        const firstNumberOfProgression = getRandomNumber();
-        const difference = getRandomNumber();
-        const missingIndex = Math.floor(Math.random() * 10 + 1);
-        rightAnswer = firstNumberOfProgression + difference * (missingIndex - 1);
-        for (let j = 1; j < 11; j += 1) {
-          if (j === missingIndex) question += '.. ';
-          else question += `${firstNumberOfProgression + difference * (j - 1)} `;
-        }
-        questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
-      }
+      generateDataForProgression();
       break;
     default: console.log('game not found');
       break;
