@@ -6,13 +6,16 @@
 ## Installation guide
 ### Install from NPM
 
-`$npm i hexletbackendproject1`
+```
+  $ npm i hexletbackendproject1
+```
 
 ### Install from GitHub
 
-```$git clone https://github.com/AlexanderMalikh/backend-project-lvl1.git
-$make publish
-$npm link
+```
+  $ git clone https://github.com/AlexanderMalikh/backend-project-lvl1.git
+  $ make publish
+  $ npm link
 ```
 
 ## How to play:
