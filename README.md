@@ -10,9 +10,10 @@
 
 ### Install from GitHub
 
-`$git clone https://github.com/AlexanderMalikh/backend-project-lvl1.git`
-`$make publish`
-`$npm link`
+```$git clone https://github.com/AlexanderMalikh/backend-project-lvl1.git
+$make publish
+$npm link
+```
 
 ## How to play:
 [![asciicast](https://asciinema.org/a/RbwhfTJgL8mPfJj2CQQ3OKYkb.svg)](https://asciinema.org/a/RbwhfTJgL8mPfJj2CQQ3OKYkb)
