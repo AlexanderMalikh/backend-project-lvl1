@@ -1,6 +1,6 @@
 {
   "name": "hexletbackendproject1",
-  "version": "1.9.6",
+  "version": "1.9.7",
   "description": "Let's play some games",
   "main": "",
   "scripts": {
@@ -8,11 +8,11 @@
     "prepublishOnly": "npm run build"
   },
   "bin": {
-    "even": "dist/bin/even.js",
-    "calc": "dist/bin/calc.js",
-    "gcd": "dist/bin/gcd.js",
-    "progression": "dist/bin/progression.js",
-    "prime": "dist/bin/prime.js"
+    "even": "dist/bin/brain-even.js",
+    "calc": "dist/bin/brain-calc.js",
+    "gcd": "dist/bin/brain-gcd.js",
+    "progression": "dist/bin/brain-progression.js",
+    "prime": "dist/bin/brain-prime.js"
   },
   "files": [
     "dist"
@@ -32,14 +32,14 @@
     "eslint": "^6.3.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-plugin-babel": "^5.3.0",
-    "eslint-plugin-import": "^2.18.2"
-  },
-  "dependencies": {
-    "@hexlet/pairs": "^1.0.10",
-    "readline-sync": "^1.4.10",
+    "eslint-plugin-import": "^2.18.2",
     "@babel/cli": "^7.6.0",
     "@babel/core": "^7.6.0",
     "@babel/node": "^7.6.1",
     "@babel/preset-env": "^7.6.0"
+  },
+  "dependencies": {
+    "@hexlet/pairs": "^1.0.10",
+    "readline-sync": "^1.4.10"
   }
 }
