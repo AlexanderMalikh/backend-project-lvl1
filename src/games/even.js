@@ -1,20 +1,17 @@
-import {
-  getRandomNumber, createQuestionAndAnswerPair,
-} from '../utils';
+import { getRandomInRange, cons } from '../utils';
 
 import startGame from '..';
 
+const gameDescription = 'Answer "yes" if the number is even, otherwise answer "no"\n';
+
+const isEven = (number) => number % 2 === 0;
+
 const generateGameData = () => {
-  const questionsAndAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    const numberForCheck = getRandomNumber();
-    const rightAnswer = numberForCheck % 2 === 0 ? 'yes' : 'no';
-    const question = `${numberForCheck}`;
-    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, rightAnswer);
-  }
-  return questionsAndAnswers;
+  const question = getRandomInRange(1, 100);
+  const answer = isEven(getRandomInRange(1, 100)) ? 'yes' : 'no';
+  return cons(question, answer);
 };
 
 export default () => {
-  startGame(generateGameData(), 'even');
+  startGame(generateGameData, gameDescription);
 };

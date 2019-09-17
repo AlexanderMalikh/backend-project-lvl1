@@ -1,30 +1,27 @@
-import {
-  getRandomNumber,
-  createQuestionAndAnswerPair,
-} from '../utils';
+import { getRandomInRange, cons } from '../utils';
 
 import startGame from '..';
 
+const gameDescription = 'What number is missing in the progression?\n';
+
+const progressionLength = 10;
+
 const makeProgression = (firstNumber, diff, index) => {
-  let quest;
-  for (let i = 1; i < 11; i += 1) {
-    if (i === index) quest += '.. ';
-    else quest += `${firstNumber + diff * (i - 1)} `;
+  let progressionResult;
+  for (let i = 1; i <= progressionLength; i += 1) {
+    if (i === index) progressionResult += '.. ';
+    else progressionResult += `${firstNumber + diff * (i - 1)} `;
   }
-  return quest;
+  return progressionResult;
 };
 const generateGameData = () => {
-  const questionsAndAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    const firstNumberOfProgression = getRandomNumber();
-    const difference = getRandomNumber();
-    const missingIndex = Math.floor(Math.random() * 10 + 1);
-    const rightAnswer = firstNumberOfProgression + difference * (missingIndex - 1);
-    const question = makeProgression(firstNumberOfProgression, difference, missingIndex);
-    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
-  }
-  return questionsAndAnswers;
+  const firstNumberOfProgression = getRandomInRange(1, 20);
+  const difference = getRandomInRange(1, 10);
+  const missingIndex = getRandomInRange(1, 10);
+  const rightAnswer = firstNumberOfProgression + difference * (missingIndex - 1);
+  const question = makeProgression(firstNumberOfProgression, difference, missingIndex);
+  return cons(question, String(rightAnswer));
 };
 export default () => {
-  startGame(generateGameData(), 'progression');
+  startGame(generateGameData, gameDescription);
 };

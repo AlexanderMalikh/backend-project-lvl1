@@ -1,29 +1,25 @@
 import {
-  createQuestionAndAnswerPair, cons,
-  car, cdr, getRandomNumberPair,
+  cons, car, cdr, getRandomInRange,
 } from '../utils';
 
 import startGame from '..';
 
-const findGcd = (pairOfNums) => {
-  const m = car(pairOfNums);
-  const n = cdr(pairOfNums);
+const gameDescription = 'nFind the greatest common divisor of given numbers.\n';
+
+const findGcd = (m, n) => {
   if (n === 0) {
     return m;
   }
-  return findGcd(cons(n, m % n));
+  return findGcd(n, m % n);
 };
+
 const generateGameData = () => {
-  const questionsAndAnswers = [];
-  for (let i = 0; i < 3; i += 1) {
-    const randomPairOfNums = getRandomNumberPair();
-    const rightAnswer = findGcd(randomPairOfNums);
-    const question = `${car(randomPairOfNums)} ${cdr(randomPairOfNums)}`;
-    questionsAndAnswers[i] = createQuestionAndAnswerPair(question, String(rightAnswer));
-  }
-  return questionsAndAnswers;
+  const randomPair = cons(getRandomInRange(1, 50), getRandomInRange(1, 50));
+  const rightAnswer = findGcd(car(randomPair), cdr(randomPair));
+  const question = `${car(randomPair)} ${cdr(randomPair)}`;
+  return cons(question, String(rightAnswer));
 };
 
 export default () => {
-  startGame(generateGameData(), 'gcd');
+  startGame(generateGameData, gameDescription);
 };
