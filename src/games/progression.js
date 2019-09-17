@@ -7,10 +7,10 @@ const gameDescription = 'What number is missing in the progression?\n';
 const progressionLength = 10;
 
 const makeProgression = (firstNumber, diff, index) => {
-  let progressionResult;
+  let progressionResult = '';
   for (let i = 1; i <= progressionLength; i += 1) {
     if (i === index) progressionResult += '.. ';
-    else progressionResult += `${firstNumber + diff * (i - 1)} `;
+    else progressionResult = `${progressionResult} ${firstNumber + diff * (i - 1)} `;
   }
   return progressionResult;
 };
