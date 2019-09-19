@@ -1,10 +1,10 @@
-import {
-  cons, car, cdr, getRandomInRange,
-} from '../utils';
+import { cons, car, cdr } from '@hexlet/pairs';
 
-import startGame from '..';
+import getRandomInRange from '../utils';
 
-const gameDescription = 'nFind the greatest common divisor of given numbers.\n';
+import playGame from '..';
+
+const gameDescription = 'nFind the greatest common divisor of given numbers.';
 
 const findGcd = (m, n) => {
   if (n === 0) {
@@ -21,5 +21,5 @@ const generateGameData = () => {
 };
 
 export default () => {
-  startGame(generateGameData, gameDescription);
+  playGame(generateGameData, gameDescription);
 };

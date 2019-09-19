@@ -1,30 +1,31 @@
-import {
-  getRandomInRange, cons, car, cdr,
-} from '../utils';
+import { cons } from '@hexlet/pairs';
 
-import startGame from '..';
+import getRandomInRange from '../utils';
+
+import playGame from '..';
 
 const gameDescription = 'What is the result of the expression?\n';
 
 const operators = ['+', '-', '*'];
 
-const doCalc = (pair, calculation) => {
-  switch (calculation) {
-    case ('+'): return car(pair) + cdr(pair);
-    case ('-'): return car(pair) - cdr(pair);
-    case ('*'): return car(pair) * cdr(pair);
+const calculate = (num1, num2, operation) => {
+  switch (operation) {
+    case ('+'): return num1 + num2;
+    case ('-'): return num1 - num2;
+    case ('*'): return num1 * num2;
     default: return null;
   }
 };
 
 const generateGameData = () => {
-  const randomPair = cons(getRandomInRange(1, 10), getRandomInRange(1, 10));
-  const operator = operators[getRandomInRange(0, 2)];
-  const rightAnswer = doCalc(randomPair, operator);
-  const question = `${car(randomPair)} ${operator} ${cdr(randomPair)}`;
+  const number1 = getRandomInRange(1, 10);
+  const number2 = getRandomInRange(1, 10);
+  const operator = operators[operators.length - 1];
+  const rightAnswer = calculate(number1, number2, operator);
+  const question = `${number1} ${operator} ${number2}`;
   return cons(question, String(rightAnswer));
 };
 
 export default () => {
-  startGame(generateGameData, gameDescription);
+  playGame(generateGameData, gameDescription);
 };

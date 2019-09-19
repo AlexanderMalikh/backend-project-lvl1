@@ -1,27 +1,29 @@
-import { getRandomInRange, cons } from '../utils';
+import { cons } from '@hexlet/pairs';
 
-import startGame from '..';
+import getRandomInRange from '../utils';
 
-const gameDescription = 'What number is missing in the progression?\n';
+import playGame from '..';
+
+const gameDescription = 'What number is missing in the progression?';
 
 const progressionLength = 10;
 
-const makeProgression = (firstNumber, diff, index) => {
-  let progressionResult = '';
+const makeQuestion = (firstNumber, diff, index) => {
+  let data = '';
   for (let i = 1; i <= progressionLength; i += 1) {
-    if (i === index) progressionResult += '.. ';
-    else progressionResult = `${progressionResult} ${firstNumber + diff * (i - 1)} `;
+    if (i === index) data = `${data}.. `;
+    else data = `${data}${firstNumber + diff * (i - 1)} `;
   }
-  return progressionResult;
+  return data;
 };
 const generateGameData = () => {
-  const firstNumberOfProgression = getRandomInRange(1, 20);
+  const begin = getRandomInRange(1, 20);
   const difference = getRandomInRange(1, 10);
-  const missingIndex = getRandomInRange(1, 10);
-  const rightAnswer = firstNumberOfProgression + difference * (missingIndex - 1);
-  const question = makeProgression(firstNumberOfProgression, difference, missingIndex);
+  const missingElementIndex = getRandomInRange(1, progressionLength);
+  const rightAnswer = begin + difference * (missingElementIndex - 1);
+  const question = makeQuestion(begin, difference, missingElementIndex);
   return cons(question, String(rightAnswer));
 };
 export default () => {
-  startGame(generateGameData, gameDescription);
+  playGame(generateGameData, gameDescription);
 };

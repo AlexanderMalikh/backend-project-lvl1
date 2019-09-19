@@ -1,8 +1,10 @@
-import { getRandomInRange, cons } from '../utils';
+import { cons } from '@hexlet/pairs';
 
-import startGame from '..';
+import getRandomInRange from '../utils';
 
-const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".\n';
+import playGame from '..';
+
+const gameDescription = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const isPrime = (num) => {
   if (num < 2) return false;
@@ -19,5 +21,5 @@ const generateGameData = () => {
 };
 
 export default () => {
-  startGame(generateGameData, gameDescription);
+  playGame(generateGameData, gameDescription);
 };
