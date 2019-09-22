@@ -6,10 +6,10 @@ import playGame from '..';
 
 const gameDescription = 'What number is missing in the progression?';
 
-const makeQuestion = (firstElement, diff, index, length) => {
+const makeQuestion = (firstElement, diff, elementIndex, length) => {
   let data = '';
   for (let i = 1; i <= length; i += 1) {
-    if (i === index) data = `${data} .. `;
+    if (i === elementIndex) data = `${data} .. `;
     else data = `${data} ${firstElement + diff * (i - 1)}`;
   }
   return data;
