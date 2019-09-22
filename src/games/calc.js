@@ -4,7 +4,7 @@ import getRandomInRange from '../utils';
 
 import playGame from '..';
 
-const gameDescription = 'What is the result of the expression?\n';
+const gameDescription = 'What is the result of the expression?';
 
 const operators = ['+', '-', '*'];
 

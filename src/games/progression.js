@@ -6,22 +6,21 @@ import playGame from '..';
 
 const gameDescription = 'What number is missing in the progression?';
 
-const progressionLength = 10;
-
-const makeQuestion = (firstNumber, diff, index) => {
+const makeQuestion = (firstElement, diff, index, length) => {
   let data = '';
-  for (let i = 1; i <= progressionLength; i += 1) {
-    if (i === index) data = `${data}.. `;
-    else data = `${data}${firstNumber + diff * (i - 1)} `;
+  for (let i = 1; i <= length; i += 1) {
+    if (i === index) data = `${data} .. `;
+    else data = `${data} ${firstElement + diff * (i - 1)}`;
   }
   return data;
 };
 const generateGameData = () => {
+  const progressionLength = 10;
   const begin = getRandomInRange(1, 20);
   const difference = getRandomInRange(1, 10);
   const missingElementIndex = getRandomInRange(1, progressionLength);
   const rightAnswer = begin + difference * (missingElementIndex - 1);
-  const question = makeQuestion(begin, difference, missingElementIndex);
+  const question = makeQuestion(begin, difference, missingElementIndex, progressionLength);
   return cons(question, String(rightAnswer));
 };
 export default () => {

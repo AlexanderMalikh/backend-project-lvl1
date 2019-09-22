@@ -1,10 +1,10 @@
-import { cons, car, cdr } from '@hexlet/pairs';
+import { cons } from '@hexlet/pairs';
 
 import getRandomInRange from '../utils';
 
 import playGame from '..';
 
-const gameDescription = 'nFind the greatest common divisor of given numbers.';
+const gameDescription = 'Find the greatest common divisor of given numbers.';
 
 const findGcd = (m, n) => {
   if (n === 0) {
@@ -14,9 +14,10 @@ const findGcd = (m, n) => {
 };
 
 const generateGameData = () => {
-  const randomPair = cons(getRandomInRange(1, 50), getRandomInRange(1, 50));
-  const rightAnswer = findGcd(car(randomPair), cdr(randomPair));
-  const question = `${car(randomPair)} ${cdr(randomPair)}`;
+  const number1 = getRandomInRange(1, 50);
+  const number2 = getRandomInRange(1, 50);
+  const rightAnswer = findGcd(number1, number2);
+  const question = `${number1} ${number2}`;
   return cons(question, String(rightAnswer));
 };
 
